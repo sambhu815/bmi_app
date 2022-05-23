@@ -31,17 +31,15 @@ class Home extends StatelessWidget {
           [
             VxBuilder(
                 builder: (context, _, status) => HStack([
-                      ReusableCard(store.maleCardColor,
+                      ReusableCard(
+                          store.maleCardColor,
                           IconContent(icon: Icons.male_rounded, label: "male"),
-                          () {
-                        ChangeGender(Sex.Male);
-                      }).expand(),
+                          () => ChangeGender(Sex.Male)).expand(),
                       ReusableCard(
                           store.femaleCardColor,
                           IconContent(
-                              label: "female", icon: Icons.female_rounded), () {
-                        ChangeGender(Sex.Female);
-                      }).expand()
+                              label: "female", icon: Icons.female_rounded),
+                          () => ChangeGender(Sex.Female)).expand()
                     ]),
                 mutations: const {ChangeGender}).expand(),
             HStack(

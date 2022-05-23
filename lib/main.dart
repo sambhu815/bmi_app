@@ -1,11 +1,20 @@
+import 'package:bmi_app/error.dart';
 import 'package:bmi_app/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'utils/bmi_store.dart';
 
-void main() => runApp(VxState(
-    store: BMIStore(), interceptors: [LogInterceptor()], child: const MyApp()));
+void main() {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return ErrorPage(errorException: details.exception.toString());
+  };
+
+  runApp(VxState(
+      store: BMIStore(),
+      interceptors: [LogInterceptor()],
+      child: const MyApp()));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

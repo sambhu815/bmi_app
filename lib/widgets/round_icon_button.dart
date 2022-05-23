@@ -14,6 +14,7 @@ class RoundIconButton extends StatelessWidget {
         shape: const CircleBorder(),
         fillColor: kRoundIconButtonColor,
         onPressed: onPressed,
+        elevation: 8,
         constraints: const BoxConstraints.tightFor(width: 56.0, height: 56.0),
         child: Icon(icon));
   }

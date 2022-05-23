@@ -1,4 +1,5 @@
 import 'package:bmi_app/utils/constants.dart';
+import 'package:bmi_app/widgets/page_bottom_button.dart';
 import 'package:bmi_app/widgets/resusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -36,6 +37,28 @@ class ResultPage extends StatelessWidget {
                 .make()
                 .centered()
                 .expand(),
+            ReusableCard(
+                    kActiveCardColor,
+                    VStack(
+                        alignment: MainAxisAlignment.spaceEvenly,
+                        crossAlignment: CrossAxisAlignment.center,
+                        [
+                          result
+                              .toUpperCase()
+                              .text
+                              .bold
+                              .green500
+                              .makeCentered(),
+                          bmi.text.size(100.0).makeCentered(),
+                          interpretation.text.align(TextAlign.center).size(22.0).makeCentered().p16()
+                        ]),
+                    () {})
+                .expand(flex: 5),
+            PageBottomButton(
+                onPress: () {
+                  Navigator.pop(context);
+                },
+                label: "Re-Calculate")
           ]),
     );
   }
